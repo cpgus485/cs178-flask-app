@@ -12,6 +12,7 @@
 #   EC2_PRIVATE_KEY → The contents of your deploy_key (from Lab 9 setup)
 #
 # If you're starting fresh (new fork), re-do the deploy key setup from Lab 9.
+#
 
 name: Deploy to EC2
 
