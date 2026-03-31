@@ -1,5 +1,5 @@
 # dbCode.py
-# Author: Your Name
+# Author: Clayton Gustafson
 # Helper functions for database connection and queries
 
 import pymysql
