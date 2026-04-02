@@ -63,7 +63,7 @@ def display_users():
         FROM country
         LIMIT 20"""
     )
-    return render_template('display_users.html', users = rows)
+    return display_html(rows)
 
 
 # these two lines of code should always be the last in the file

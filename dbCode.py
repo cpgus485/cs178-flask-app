@@ -12,7 +12,7 @@ def get_conn():
         host=creds.host,
         user=creds.user,
         password=creds.password,
-        db=creds.database,
+        db=creds.db,
     )
     return conn
 
@@ -23,3 +23,13 @@ def execute_query(query, args=()):
     rows = cur.fetchall()
     cur.close()
     return rows
+
+def display_html(rows):
+    html = "<table border='1'>"
+    for row in rows:
+        html += "<tr>"
+        for col in row:
+            html += f"<td>{col}</td>"
+        html += "</tr>"
+    html += "</table>"
+    return html
