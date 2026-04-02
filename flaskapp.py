@@ -58,11 +58,12 @@ def delete_user():
 def display_users():
     # hard code a value to the users_list;
     # note that this could have been a result from an SQL query :) 
-    rows = execute_query(
-        """SELECT continet
+    rows = execute_query("""
+        SELECT *
         FROM country
         LIMIT 20"""
     )
+    return render_template('display_users.html', users = rows)
 
 
 # these two lines of code should always be the last in the file
