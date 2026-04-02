@@ -28,8 +28,8 @@ def display_html(rows):
     html = "<table border='1'>"
     for row in rows:
         html += "<tr>"
-        for col in row:
-            html += f"<td>{col}</td>"
+        for value in row.values():
+            html += f"<td>{value}</td>"
         html += "</tr>"
     html += "</table>"
     return html
