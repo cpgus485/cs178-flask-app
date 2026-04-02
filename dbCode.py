@@ -33,3 +33,5 @@ def display_html(rows):
         html += "</tr>"
     html += "</table>"
     return html
+
+
