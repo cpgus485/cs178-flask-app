@@ -25,12 +25,24 @@ def execute_query(query, args=()):
     return rows
 
 def display_html(rows):
+    if not rows:
+        return "<p>No results</p>"
+    
     html = "<table border='1'>"
+    
+    # Header row (Used ChatGPT to get the headers to show up)
+    html += "<tr>"
+    for col in rows[0].keys():
+        html += f"<th>{col}</th>"
+    html += "</tr>"
+
+    # Data rows 
     for row in rows:
         html += "<tr>"
-        for value in row.values():
+        for value in row.values(): # Was only getting headers here originally, used ChatGPT to iterate over a dictionary instead
             html += f"<td>{value}</td>"
         html += "</tr>"
+
     html += "</table>"
     return html
 
