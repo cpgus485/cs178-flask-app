@@ -12,7 +12,7 @@ def get_conn():
         host=creds.host,
         user=creds.user,
         password=creds.password,
-        db=creds.db,
+        db=creds.database,
     )
     return conn
 
