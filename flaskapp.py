@@ -59,7 +59,7 @@ def display_users():
     # hard code a value to the users_list;
     # note that this could have been a result from an SQL query :) 
     rows = execute_query("""
-        SELECT continent
+        SELECT distinct continent
         FROM country
         LIMIT 20"""
     )
