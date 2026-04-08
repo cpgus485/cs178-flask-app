@@ -17,8 +17,8 @@ app.secret_key = 'your_secret_key' # this is an artifact for using flash display
 def home():
     return render_template('home.html')
 
-@app.route('/add-user', methods=['GET', 'POST'])
-def add_user():
+@app.route('/add-country', methods=['GET', 'POST'])
+def add_country():
     if request.method == 'POST':
         # Extract form data
         f_name = request.form['f_name']
@@ -34,10 +34,10 @@ def add_user():
         return redirect(url_for('home'))
     else:
         # Render the form page if the request method is GET
-        return render_template('add_user.html')
+        return render_template('add_country.html')
 
-@app.route('/delete-user',methods=['GET', 'POST'])
-def delete_user():
+@app.route('/delete-country',methods=['GET', 'POST'])
+def delete_country():
     if request.method == 'POST':
         # Extract form data
         name = request.form['name']
@@ -51,11 +51,11 @@ def delete_user():
         return redirect(url_for('home'))
     else:
         # Render the form page if the request method is GET
-        return render_template('delete_user.html')
+        return render_template('delete_country.html')
 
 
 @app.route('/display-users')
-def display_users():
+def display_countries():
     # hard code a value to the users_list;
     # note that this could have been a result from an SQL query :) 
     rows = execute_query("""
