@@ -54,7 +54,7 @@ def delete_country():
         return render_template('delete_country.html')
 
 
-@app.route('/display-users')
+@app.route('/display-countries')
 def display_countries():
     # hard code a value to the users_list;
     # note that this could have been a result from an SQL query :) 
