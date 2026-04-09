@@ -17,8 +17,8 @@ app.secret_key = 'your_secret_key' # this is an artifact for using flash display
 def home():
     return render_template('home.html')
 
-@app.route('/add-country', methods=['GET', 'POST'])
-def add_country():
+@app.route('/add-city', methods=['GET', 'POST'])
+def add_city():
     if request.method == 'POST':
         # Extract form data
         f_name = request.form['f_name']
@@ -34,10 +34,10 @@ def add_country():
         return redirect(url_for('home'))
     else:
         # Render the form page if the request method is GET
-        return render_template('add_country.html')
+        return render_template('add_city.html')
 
-@app.route('/delete-country',methods=['GET', 'POST'])
-def delete_country():
+@app.route('/delete-city',methods=['GET', 'POST'])
+def delete_city():
     if request.method == 'POST':
         # Extract form data
         name = request.form['name']
@@ -51,18 +51,21 @@ def delete_country():
         return redirect(url_for('home'))
     else:
         # Render the form page if the request method is GET
-        return render_template('delete_country.html')
+        return render_template('delete_city.html')
 
 
-@app.route('/display-countries')
-def display_countries():
+@app.route('/display-cities')
+def display_cities():
     # hard code a value to the users_list;
     # note that this could have been a result from an SQL query :) 
     rows = execute_query("""
-        SELECT *
+        SELECT Name, Continent, Region
         FROM country
         LIMIT 20"""
     )
+
+    # cursor.execute(rows) # Change this after implementing 'cursor=' in dbCode
+
     return display_html(rows)
 
 

@@ -24,6 +24,9 @@ def execute_query(query, args=()):
     cur.close()
     return rows
 
+# Add cursor
+
+# Delete below
 def display_html(rows):
     if not rows:
         return "<p>No results</p>"
