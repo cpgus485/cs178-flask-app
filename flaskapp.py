@@ -55,7 +55,7 @@ def delete_city():
 
 
 @app.route('/update-city', methods=['GET', 'POST'])
-def update():
+def update_city():
     if request.method == 'POST':
         # Extract form data
         f_name = request.form['f_name']
