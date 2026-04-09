@@ -59,7 +59,7 @@ def display_cities():
     # hard code a value to the users_list;
     # note that this could have been a result from an SQL query :) 
     rows = execute_query("""
-        SELECT city.name, country.name, country.continent, city.population
+        SELECT city.name as City, country.name as Country, country.continent as Continent, city.population as Population
         FROM city
         JOIN country
         Where city.countrycode = country.code
