@@ -54,6 +54,25 @@ def delete_city():
         return render_template('delete_city.html')
 
 
+@app.route('/update-city', methods=['GET', 'POST'])
+def update():
+    if request.method == 'POST':
+        # Extract form data
+        f_name = request.form['f_name']
+        l_name = request.form['l_name']
+        genre = request.form['genre']
+        
+        # Process the data (e.g., add it to a database)
+        # For now, let's just print it to the console
+        print("Name:", f_name + " "+ l_name, ":", "Favorite Genre:", genre)
+        
+        flash('User added successfully! Huzzah!', 'success')  # 'success' is a category; makes a green banner at the top
+        # Redirect to home page or another page upon successful submission
+        return redirect(url_for('home'))
+    else:
+        # Render the form page if the request method is GET
+        return render_template('update_city.html')
+
 @app.route('/display-cities')
 def display_cities():
     # hard code a value to the users_list;
