@@ -62,7 +62,7 @@ def display_cities():
         SELECT city.name, country.name, country.continent, city.population
         FROM city
         JOIN country
-        Where city.countrycode = country.countrycode
+        Where city.countrycode = country.code
         LIMIT 20"""
     )
 
