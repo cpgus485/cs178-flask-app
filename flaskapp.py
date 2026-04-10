@@ -61,7 +61,7 @@ def update_city():
     if request.method == 'POST':
         # Extract form data
         city = request.form['city']
-        visits = request.form['visits']
+        visits = int(request.form['visits'])
 
         table=get_table()
         table.update_item(
@@ -74,8 +74,7 @@ def update_city():
         #execute_query("""
         #    INSERT INTO """)
         # For now, let's just print it to the console
-        print("Name:", f_name + " "+ l_name, ":", "Favorite Genre:", genre)
-        
+        #    
         flash('User added successfully! Huzzah!', 'success')  # 'success' is a category; makes a green banner at the top
         # Redirect to home page or another page upon successful submission
         return redirect(url_for('home'))
