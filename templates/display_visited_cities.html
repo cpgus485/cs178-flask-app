@@ -18,8 +18,8 @@
             <tbody> <!-- table body -- loop through all of the users -->
                 {% for city in cities %}
                 <tr>
-                    <td>{{ cities[city].City }}</td>
-                    <td>{{ cities[city].Visits }}</td>
+                    <td>{{ city.City }}</td>
+                    <td>{{ city.Visits }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
