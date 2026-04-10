@@ -61,7 +61,7 @@ def update_city():
     if request.method == 'POST':
         # Extract form data
         city = request.form['city']
-        visits = request.form['visits']
+        visits = int(request.form['visits'])
 
         table=get_table()
         table.update_item(
