@@ -59,20 +59,18 @@ def delete_city():
 @app.route('/update-city', methods=['GET', 'POST'])
 def update_city():
     if request.method == 'POST':
-        try:
-            # Extract form data
-            city = request.form['city']
-            visits = int(request.form['visits'])
-            print(type(visits))
+        # Extract form data
+        city = request.form['city']
+        visits = int(request.form['visits'])
+        print(type(visits))
 
-            table=get_table()
-            table.update_item(
-                Key={"City": city},
-                UpdateExpression="SET Visits = list_append(Visits, :v)",
-                ExpressionAttributeValues={':v': [visits]}
-            )
-        except:
-            print("error in updating movie rating")
+        table=get_table()
+        table.update_item(
+            Key={"City": city},
+            UpdateExpression="SET Visits = list_append(Visits, :v)",
+            ExpressionAttributeValues={':v': [visits]}
+        )
+        print("error in updating movie rating")
         # Process the data (e.g., add it to a database)
         # For now, let's just print it to the console
         #    
