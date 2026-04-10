@@ -83,7 +83,12 @@ def update_city():
 
 @app.route('/display-visited-cities', methods=['GET', 'POST'])
 def visited_cities():
-    return render_template('display_visited_cities')
+    table = get_table()
+
+    response = table.scan()
+    items = response.get("Items", [])
+
+    return render_template('display_visited_cities.html', cities = items)
 
 @app.route('/display-cities')
 def display_cities():
