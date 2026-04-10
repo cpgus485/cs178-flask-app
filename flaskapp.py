@@ -81,6 +81,10 @@ def update_city():
         # Render the form page if the request method is GET
         return render_template('update_city.html')
 
+@app.route('/display-visited-cities', methods=['GET', 'POST'])
+def visited_cities():
+    return render_template('display_visited_cities')
+
 @app.route('/display-cities')
 def display_cities():
     # hard code a value to the users_list;
