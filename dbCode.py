@@ -5,6 +5,7 @@
 from flask import Flask, render_template, request
 import pymysql
 import creds
+import boto3
 
 def get_conn():
     """Returns a connection to the MySQL RDS instance."""
@@ -24,7 +25,13 @@ def execute_query(query, args=()):
     cur.close()
     return rows
 
-# Add cursor
+# DynamoDB Configuration
+REGION = "us-east-1"
+TABLE_NAME = "City_Visits"
+
+def get_table():
+    dynamodb = boto3.resource("dynamodb", region_name=REGION)
+    return dynamodb.Table(TABLE_NAME)
 
 # Delete below
 def display_html(rows):
