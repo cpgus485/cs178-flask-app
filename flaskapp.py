@@ -63,6 +63,7 @@ def update_city():
             # Extract form data
             city = request.form['city']
             visits = int(request.form['visits'])
+            print(type(visits))
 
             table=get_table()
             table.update_item(
