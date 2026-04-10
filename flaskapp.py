@@ -89,8 +89,7 @@ def display_cities():
         SELECT city.name as City, country.name as Country, country.continent as Continent, city.population as Population
         FROM city
         JOIN country
-        Where city.countrycode = country.code
-        LIMIT 20"""
+        Where city.countrycode = country.code"""
     )
 
     # cursor.execute(rows) # Change this after implementing 'cursor=' in dbCode
