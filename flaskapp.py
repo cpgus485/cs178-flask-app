@@ -68,7 +68,7 @@ def update_city():
         table.update_item(
             Key={"City": city},
             UpdateExpression="SET Visits = :v",
-            ExpressionAttributeValues={':v': [visits]}
+            ExpressionAttributeValues={':v': visits}
         )
         print("error in updating movie rating")
         # Process the data (e.g., add it to a database)
