@@ -39,11 +39,14 @@ def add_city():
 def delete_city():
     if request.method == 'POST':
         # Extract form data
-        name = request.form['name']
+        city = request.form['name']
         
-        # Process the data (e.g., add it to a database)
-        # For now, let's just print it to the console
-        print("Name to delete:", name)
+        table = get_table()
+        table.delete_item(
+            Key={
+                "City":city
+            }
+        )
         
         flash('User deleted successfully! Hoorah!', 'warning') 
         # Redirect to home page or another page upon successful submission
@@ -57,9 +60,15 @@ def delete_city():
 def update_city():
     if request.method == 'POST':
         # Extract form data
-        f_name = request.form['f_name']
-        l_name = request.form['l_name']
-        genre = request.form['genre']
+        city = request.form['city']
+        visits = request.form['visits']
+
+        table=get_table()
+        table.update_item(
+            Key={"City":city},
+            UpdateExpression="SET visits = list_append(Visits, :v)",
+            ExpressionAttributeValues={':v': [visits]}
+        )
         
         # Process the data (e.g., add it to a database)
         #execute_query("""
