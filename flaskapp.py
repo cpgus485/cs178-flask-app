@@ -21,14 +21,16 @@ def home():
 def add_city():
     if request.method == 'POST':
         # Extract form data
-        f_name = request.form['f_name']
-        l_name = request.form['l_name']
-        genre = request.form['genre']
+        city = request.form['city']
+        visits = request.form['visits']
         
         # Process the data (e.g., add it to a database)
         # For now, let's just print it to the console
-        print("Name:", f_name + " "+ l_name, ":", "Favorite Genre:", genre)
+        print("City:" , city, "Visits:", visits)
         
+
+
+
         flash('User added successfully! Huzzah!', 'success')  # 'success' is a category; makes a green banner at the top
         # Redirect to home page or another page upon successful submission
         return redirect(url_for('home'))
@@ -63,6 +65,8 @@ def update_city():
         genre = request.form['genre']
         
         # Process the data (e.g., add it to a database)
+        #execute_query("""
+        #    INSERT INTO """)
         # For now, let's just print it to the console
         print("Name:", f_name + " "+ l_name, ":", "Favorite Genre:", genre)
         
