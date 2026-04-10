@@ -61,18 +61,16 @@ def update_city():
     if request.method == 'POST':
         # Extract form data
         city = request.form['city']
-        visits = int(request.form['visits'])
+        visits = request.form['visits']
 
         table=get_table()
         table.update_item(
-            Key={"City":city},
+            Key={"City": city},
             UpdateExpression="SET Visits = list_append(Visits, :v)",
             ExpressionAttributeValues={':v': [visits]}
         )
         
         # Process the data (e.g., add it to a database)
-        #execute_query("""
-        #    INSERT INTO """)
         # For now, let's just print it to the console
         #    
         flash('User added successfully! Huzzah!', 'success')  # 'success' is a category; makes a green banner at the top
